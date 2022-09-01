@@ -54,7 +54,7 @@ def process_coins():
 
 def check_transaction(total_sum, drink_cost):
     if total_sum >= drink_cost:
-        change = total_sum - drink_cost
+        change = round(total_sum - drink_cost, 2)
         print(f"Here is ${change} in change.")
         global profit
         profit += drink_cost
