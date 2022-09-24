@@ -10,6 +10,10 @@ class Snake:
     def __init__(self):
         self.segments = []
         self.create_snake()
+        self.up()
+        self.down()
+        self.left()
+        self.right()
 
 
     def create_snake(self):
@@ -26,3 +30,16 @@ class Snake:
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
         self.segments[0].forward(MOVE_DISTANCE)
+
+    def up(self):
+        tilt = 90 - int(self.segments[0].heading())
+        self.segments[0].left(tilt)
+    def down(self):
+        tilt = 270 - int(self.segments[0].heading())
+        self.segments[0].left(tilt)
+    def left(self):
+        tilt = 180 - int(self.segments[0].heading())
+        self.segments[0].left(tilt)
+    def right(self):
+        tilt = 0 - int(self.segments[0].heading())
+        self.segments[0].left(tilt)
